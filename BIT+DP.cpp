@@ -40,7 +40,7 @@ void update(ll x,ll val)
 {
     for(;x<n;x+=x&-x)bits[x]+=val;
 }
-ll sumb(ll x)
+ll sumb(ll x)                                                   //Update and Sum operation of BIT
 {
     ll sum=0;
     for(;x;x-=x&-x)sum+=bits[x];
@@ -56,7 +56,7 @@ ll find_subsq(ll p)
         memset(bits,0,sizeof bits);
         repe(i,2,n)
         {
-            update(a[i-1],dp[i-1][k-1]);
+            update(a[i-1],dp[i-1][k-1]);                        //Dp Table
             dp[i][k]+=sumb(a[i]-1);
         }
     }
